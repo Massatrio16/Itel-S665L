@@ -3,7 +3,14 @@ import /init.recovery.common.rc
 
 on fs
     start load_modules
-    start prepdecrypt.sh
+    start prepdecrypt 
+
+service prepdecrtpt /system/bin/prepdecrypt.sh
+oneshot
+disabled
+user root
+group root
+seclabel u:r:recovery:s0
 
 service load_modules /system/bin/load_modules.sh
     oneshot
