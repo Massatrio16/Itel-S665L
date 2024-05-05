@@ -71,5 +71,6 @@ on property:twrp.decrypt.done=true
 
 on boot
 start keymint-1-0
+start gatekeeper-1-0
     start boot-hal-1-0
     start health-hal-2-1
