@@ -49,12 +49,6 @@ on property:vendor.sys.listener.registered=true
     start keymint-1-0
     start gatekeeper-1-0
 
-service prepdecrypt /system/bin/prepdecrypt.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
 
 on property:crypto.ready=1 && property:ro.crypto.state=encrypted
     install_keyring
