@@ -1,76 +1,67 @@
-#add for board init.rc for recovery mode
+# Import common recovery resources
 import /init.recovery.common.rc
 
 on fs
-    start load_modules
-    start prepdecrypt 
-
-service prepdecrypt /system/bin/prepdecrypt.sh
-oneshot
-disabled
-user root
-group root
-seclabel u:r:recovery:s0
+    start load_modules
+    start prepdecrypt 
 
 service load_modules /system/bin/load_modules.sh
-    oneshot
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
 
-service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
+service prepdecrypt /system/bin/prepdecrypt.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service mtk_plpath_utils /system/bin/mtk_plpath_utils
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
 
 service keystore2 /system/bin/keystore2 /tmp/misc/keystore
-    user root
-    group root drmrpc readproc log
-    disabled
-    seclabel u:r:recovery:s0
+    user root
+    group root drmrpc readproc log
+    disabled
+    seclabel u:r:recovery:s0
 
 service keymint-1-0 /vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service
-    class early_hal
-    user root
-    group root drmrpc
-    seclabel u:r:recovery:s0
+    class early_hal
+    user root
+    group root drmrpc
+    seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service.trusty
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-    
-on property:vendor.sys.listener.registered=true
-    start keymint-1-0
-    start gatekeeper-1-0
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
 
+on property:vendor.sys.listener.registered=true
+    start keymint-1-0
+    start gatekeeper-1-0
 
 on property:crypto.ready=1 && property:ro.crypto.state=encrypted
-    install_keyring
+    install_keyring
+    start keymint-1-0
+    start gatekeeper-1-0
 
 on property:crypto.ready=1 && property:hwservicemanager.ready=true
-    start keymint-1-0
-    start gatekeeper-1-0
+    start keymint-1-0
+    start gatekeeper-1-0
 
-on property:ro.crypto.state=unsupported
-    stop keymint-1-0
-    stop gatekeeper-1-0
-
-on property:ro.crypto.state=unencrypted
-    stop keymint-1-0
-    stop gatekeeper-1-0
-
-on property:twrp.decrypt.done=true
-    stop keymint-1-0
-    stop gatekeeper-1-0
+on property:ro.crypto.state=unsupported || property:ro.crypto.state=unencrypted || property:twrp.decrypt.done=true
+    stop keymint-1-0
+    stop gatekeeper-1-0
 
 on boot
-start keymint-1-0
-start gatekeeper-1-0
-    start boot-hal-1-0
-    start health-hal-2-1
+    start boot-hal-1-0
+    start health-hal-2-1
