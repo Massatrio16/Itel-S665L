@@ -5,7 +5,7 @@ on fs
     start load_modules
     start prepdecrypt 
 
-service prepdecrtpt /system/bin/prepdecrypt.sh
+service prepdecrypt /system/bin/prepdecrypt.sh
 oneshot
 disabled
 user root
@@ -70,5 +70,6 @@ on property:twrp.decrypt.done=true
     stop gatekeeper-1-0
 
 on boot
+start keymint-1-0
     start boot-hal-1-0
     start health-hal-2-1
