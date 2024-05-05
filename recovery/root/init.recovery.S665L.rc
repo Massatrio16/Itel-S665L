@@ -3,7 +3,7 @@ import /init.recovery.common.rc
 
 on fs
     start load_modules
-
+    start prepdecrypt.sh
 
 service load_modules /system/bin/load_modules.sh
     oneshot
@@ -20,8 +20,6 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     seclabel u:r:recovery:s0
 
-
-
 service keystore2 /system/bin/keystore2 /tmp/misc/keystore
     user root
     group root drmrpc readproc log
@@ -32,7 +30,7 @@ service keymint-1-0 /vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.
     class early_hal
     user root
     group root drmrpc
-seclabel u:r:recovery:s0
+    seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service.trusty
     user root
@@ -44,29 +42,32 @@ on property:vendor.sys.listener.registered=true
     start keymint-1-0
     start gatekeeper-1-0
 
-on property:hwservicemanager.ready=true
-   
-  
-    
+service prepdecrypt /system/bin/prepdecrypt.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+on property:crypto.ready=1 && property:ro.crypto.state=encrypted
+    install_keyring
+
+on property:crypto.ready=1 && property:hwservicemanager.ready=true
     start keymint-1-0
     start gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
- 
     stop keymint-1-0
     stop gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
-    
     stop keymint-1-0
     stop gatekeeper-1-0
 
 on property:twrp.decrypt.done=true
-    
     stop keymint-1-0
     stop gatekeeper-1-0
 
 on boot
-start boot-hal-1-0
+    start boot-hal-1-0
     start health-hal-2-1
-
