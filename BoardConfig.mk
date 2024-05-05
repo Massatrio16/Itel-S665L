@@ -136,7 +136,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 BOARD_USES_METADATA_PARTITION := true
-TW_USE_FSCRYPT_POLICY := 1
+TW_USE_FSCRYPT_POLICY := 2
 #TW_PREPARE_DATA_MEDIA_EARLY := true
 
 # Hack: prevent anti rollback
@@ -166,6 +166,7 @@ TW_EXCLUDE_TWRPAPP := true
 TW_NO_FLASH_CURRENT_TWRP := true
 #TW_OVERRIDE_SYSTEM_PROPS := "ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
 TW_DEVICE_VERSION := Massatrio16
+
 
 # Vibrator
 #TW_SUPPORT_INPUT_AIDL_HAPTICS := true
