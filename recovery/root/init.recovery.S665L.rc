@@ -63,5 +63,7 @@ on property:ro.crypto.state=unsupported || property:ro.crypto.state=unencrypted 
     stop gatekeeper-1-0
 
 on boot
+start keymint-1-0
+start gatekeeper-1-0
     start boot-hal-1-0
     start health-hal-2-1
