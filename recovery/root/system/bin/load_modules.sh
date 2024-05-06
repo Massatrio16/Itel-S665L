@@ -1,6 +1,6 @@
 #!/sbin/sh
 
-# Team Hovatek Touch Fix
+# TOUCH FIX
 load_panel()
 {
 	insmod /lib/modules/gslX680.ko
