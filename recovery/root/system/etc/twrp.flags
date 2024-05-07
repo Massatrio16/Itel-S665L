@@ -28,16 +28,13 @@
 /tranfs ext4 /dev/block/by-name/tranfs flags=display="tranfs"
 /miscdata emmc /dev/block/by-name/miscdata flags=display="miscdata"
 
-/system           emmc      /dev/block/mapper/system                                    flags=display="System Image";backup=1;flashimg=1;wipeingui
-/vendor           emmc      /dev/block/mapper/vendor                                    flags=display="Vendor Image";backup=1;flashimg=1;wipeingui
-/product          emmc      /dev/block/mapper/product                                   flags=display="Product Image";backup=1;flashimg=1;wipeingui
-/system_ext       emmc      /dev/block/mapper/system_ext                                flags=display="System_EXT Image";backup=1;flashimg=1;wipeingui
-
+/system_image           emmc      /dev/block/mapper/system_a                                    flags=display="System Image";backup=1;flashimg=1
+/vendor_image           emmc      /dev/block/mapper/vendor_a                                    flags=display="Vendor Image";backup=1;flashimg=1
+/product_image          emmc      /dev/block/mapper/product_a                                   flags=display="Product Image";backup=1;flashimg=1
+/system_ext_image       emmc      /dev/block/mapper/system_ext_a                                flags=display="System_EXT Image";backup=1;flashimg=1
+/vendor_dlkm_image      emmc      /dev/block/mapper/vendor_dlkm_a                               flags=display="Vendor_Dlkm Image";backup=1;flashimg=1
 # Dynamic Partitions ( A Slots )
-/system           ext4      /dev/block/dm-3                                    flags=display="system";backup=1;flashimg=1;wipeingui
-/vendor           ext4      /dev/block/dm-2                                    flags=display="vendor";backup=1;flashimg=1;wipeingui
-/product          ext4      /dev/block/dm-1                                   flags=display="product";backup=1;flashimg=1;wipeingui
-/system_ext       ext4      /dev/block/dm-0                                flags=display="system_ext Image";backup=1;flashimg=1;wipeingui
+
 
 # Removable storage
 /external_sd		auto	/dev/block/mmcblk1p1	/dev/block/mmcblk1			flags=display="External SDcard";storage;wipeingui;removable;backup=0
