@@ -168,6 +168,7 @@ TWRP_EVENT_LOGGING := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_TWRPAPP := true
 TW_NO_FLASH_CURRENT_TWRP := true
+TW_INCLUDE_LPTOOLS := true
 TW_DEVICE_VERSION := Massatrio16
 
 #additional lib for fix decryption
