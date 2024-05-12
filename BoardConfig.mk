@@ -13,11 +13,17 @@ ALLOW_MISSING_DEPENDENCIES := true
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor \
+    dtbo \
+    boot \
+    system \
     system \
     system_ext \
-    product \
     vendor \
-    vendor_boot \
+    product \
+    vendor_dlkm
 
 
 
