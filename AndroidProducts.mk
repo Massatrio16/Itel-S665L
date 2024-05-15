@@ -9,6 +9,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_S665L.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_S665L-eng \
-    twrp_S665L-user \
-    twrp_S6665L-userdebug
+    twrp_S665L-eng 
