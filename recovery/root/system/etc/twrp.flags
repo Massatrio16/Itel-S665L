@@ -37,7 +37,9 @@
 
 
 /system_errofs           auto      /dev/block/dm-0                                    flags=display="System Errofs";wipeingui
-/vendor_errofs           auto      /dev/block/dm-1                                    flags=display="Vendor Errofs";wipeingui
+/system_ext_errofs           auto      /dev/block/dm-1                                    flags=display="System_ext Errofs";wipeingui
+/vendor_errofs           auto      /dev/block/dm-2                                    flags=display="Vendor Errofs";wipeingui
+/product_errofs           auto      /dev/block/dm-3                                    flags=display="Product Errofs";wipeingui
 
 
 
