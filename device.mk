@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-#PRODUCT_PACKAGES_DEBUG += \
-#bootctrl
+PRODUCT_PACKAGES = \
+Lp
 
 
 LOCAL_PATH := device/itel/S665L
