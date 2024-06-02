@@ -19,7 +19,6 @@ AB_OTA_PARTITIONS += \
     dtbo \
     boot \
     system \
-    system \
     system_ext \
     vendor \
     product \
@@ -38,7 +37,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 #TARGET_USES_UEFI := true
 # Assert
-TARGET_OTA_ASSERT_DEVICE := S665L
+TARGET_OTA_ASSERT_DEVICE := itel-S665L
 
 
 # Architecture
@@ -57,7 +56,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := S665L
+TARGET_BOOTLOADER_BOARD_NAME := itel-S665L
 TARGET_NO_BOOTLOADER := true
 
 # Display
