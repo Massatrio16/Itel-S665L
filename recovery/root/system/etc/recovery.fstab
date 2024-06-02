@@ -5,11 +5,6 @@ product                                    		/product               erofs       
 vendor_dlkm                                   /vendor_dlkm           ext4                ro wait,slotselect,logical
 
 system                                     		/system                ext4                ro,barrier=1  wait,slotselect,logical
-system_ext                                     		/system_ext                ext4                ro,barrier=1  wait,slotselect,logical
-vendor                                     		/vendor                ext4                ro,barrier=1  wait,slotselect,logical
-peoduct                                     		/product                ext4                ro,barrier=1  wait,slotselect,logical
-
-
 
 
 
