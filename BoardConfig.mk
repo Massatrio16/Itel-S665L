@@ -168,6 +168,7 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := "/sys/devices/platform/soc/soc:ap-ahb/31100000.dsi/31100000.dsi.0/display/panel0/sprd_backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
+TW_VIBRATION_PATH := 
 TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone16/temp
 TW_DEFAULT_BRIGHTNESS := 1200
 
@@ -184,6 +185,7 @@ TW_INCLUDE_LPTOOLS := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_TWRPAPP := true
 TW_NO_FLASH_CURRENT_TWRP := true
+TW_EXCLUDE_APEX := true
 
 # DEBUG
 TWRP_INCLUDE_LOGCAT := true
