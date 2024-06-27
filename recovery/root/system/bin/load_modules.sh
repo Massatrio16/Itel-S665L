@@ -7,6 +7,7 @@ load_panel()
 	insmod /lib/modules/adaptive-ts.ko
 	insmod /lib/modules/gpio.ko
 	insmod /lib/modules/focaltech_ft8756_spi_ts.ko
+        insmod /lib/modules/sc27xx-vibra.ko
 }
 
 
