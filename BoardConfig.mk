@@ -89,9 +89,9 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(BOARD_BOOTIMAGE_PARTITION_SIZE)
 BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
-BOARD_SUPER_PARTITION_GROUPS := itel_dynamic_partitions
-BOARD_ITEL_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm
-BOARD_ITEL_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
+BOARD_SUPER_PARTITION_GROUPS := group_unisoc
+BOARD_GROUP_UNISOC_PARTITION_LIST := system system_ext product vendor vendor_dlkm
+BOARD_GROUP_UNISOC_SIZE := 9122611200 # TODO: Fix hardcoded value
 # https://source.android.com/devices/bootloader/partitions/generic-boot#combinations, "Launch device without recovery partition":
 
 
@@ -168,8 +168,8 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := "/sys/devices/platform/soc/soc:ap-ahb/31100000.dsi/31100000.dsi.0/display/panel0/sprd_backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
-TW_VIBRATION_PATH := 
-TW_CUSTOM_VIBRATION_PATH :=
+#TW_VIBRATION_PATH := 
+#TW_CUSTOM_VIBRATION_PATH :=
 TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone0/temp
 TW_DEFAULT_BRIGHTNESS := 1200
 
